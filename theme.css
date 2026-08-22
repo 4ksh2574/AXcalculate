@@ -1,0 +1,110 @@
+:root {
+  --color-primary: #9cebc7;
+  --color-primary-contrast: #06241b;
+  --color-bg: #eef3ee;
+  --color-surface: #e5ece7;
+  --color-text: #18221f;
+  --color-muted: #64706b;
+  --font-heading: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-body: Inter, ui-sans-serif, system-ui, sans-serif;
+  --radius: 999px;
+  --color-primary-soft: color-mix(in srgb, var(--color-primary) 22%, var(--color-surface));
+  --color-border: color-mix(in srgb, var(--color-text) 12%, transparent);
+  --color-shadow: color-mix(in srgb, var(--color-text) 14%, transparent);
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-outer-bg, #dce7df);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  transition: background .25s ease, color .25s ease;
+}
+
+/* Android wallpaper palette overrides the normal light/dark tokens. */
+.android-dynamic-theme {
+  --color-primary: var(--android-primary, var(--color-primary));
+  --color-primary-contrast: var(--android-primary-contrast, var(--color-primary-contrast));
+  --color-bg: var(--android-bg, var(--color-bg));
+  --color-surface: var(--android-surface, var(--color-surface));
+  --color-text: var(--android-text, var(--color-text));
+  --color-muted: var(--android-muted, var(--color-muted));
+}
+
+/* Reference-inspired calculator dark mode */
+.dark-mode {
+  --color-primary: #005b45;
+  --color-primary-contrast: #d6f4e8;
+  --color-bg: #000000;
+  --color-surface: #303733;
+  --color-text: #d3dbd7;
+  --color-muted: #9ca7a2;
+  --color-outer-bg: #000000;
+}
+
+.dark-mode #appShell {
+  background: var(--color-bg);
+}
+
+.dark-mode .key-function {
+  background: #294139;
+}
+
+.dark-mode #appShell > section:first-child {
+  box-shadow: none;
+}
+
+.dark-mode .sidebar,
+.dark-mode .history-panel {
+  background: #141816;
+}
+
+.dark-mode .history-entry,
+.dark-mode .sidebar-item:hover,
+.dark-mode .sidebar a {
+  background: #202622;
+}
+
+.dark-mode .sidebar-item-active {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+.dark-mode #toast {
+  background: #f1f5f2;
+  color: #101311;
+}
+
+/* Dynamic Material You-style colors.
+   Android wrappers can update these variables through applyAndroidDynamicColors(). */
+:root {
+  --color-primary-soft: color-mix(in srgb, var(--color-primary) 22%, var(--color-surface));
+  --color-border: color-mix(in srgb, var(--color-text) 12%, transparent);
+  --color-shadow: color-mix(in srgb, var(--color-text) 14%, transparent);
+  color-scheme: light;
+}
+
+body,
+#appShell,
+.sidebar,
+.history-panel,
+.key,
+.history-entry {
+  transition: background-color .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+button {
+  font: inherit;
+  border: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+  transform: scale(.94);
+}
